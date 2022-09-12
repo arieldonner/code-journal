@@ -1,0 +1,68 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+h1,
+label {
+  font-family: "Proza Libre", sans-serif;
+}
+
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+}
+
+textarea {
+  font-family: "Proza Libre", sans-serif;
+}
+
+header {
+  background-color: rgb(78, 14, 138);
+  color: white;
+}
+
+input,
+textarea {
+  padding: 0.6rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgb(189 189 189);
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+input,
+button,
+textarea {
+  border-radius: 0.25rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 3px solid rgb(78, 14, 138);
+}
+
+button {
+  padding: 0.3rem 1rem;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Proza Libre", sans-serif;
+  background-color: rgb(78, 14, 138);
+  cursor: pointer;
+  margin-bottom: 3rem;
+  letter-spacing: -1px;
+}
+
+.right-left {
+  display: flex;
+  justify-content: flex-end;
+}
