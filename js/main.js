@@ -19,8 +19,8 @@ function handleSubmit(event) {
     notes: document.forms[1].elements.notes.value
   };
 
-  values.nextEntryId = 0;
-  values.nextEntryId += 1;
+  values.nextEntryId = data.nextEntryId;
+  data.nextEntryId += 1;
   data.entries.push(values);
 
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
