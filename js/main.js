@@ -16,7 +16,7 @@ function handleSubmit(event) {
   var values = {
     title: document.forms[0].elements.title.value,
     photo: document.forms[0].elements['photo-url'].value,
-    notes: document.forms[1].elements.notes.value
+    notes: document.forms[0].elements.notes.value
   };
 
   values.nextEntryId = data.nextEntryId;
@@ -25,6 +25,5 @@ function handleSubmit(event) {
 
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
 
-  document.forms[0].reset();
-  document.forms[1].reset();
+  $entryForm.reset();
 }

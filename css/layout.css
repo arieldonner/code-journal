@@ -21,7 +21,7 @@
 img {
   width: 100%;
   object-fit: cover;
-  height: 70%;
+  height: 65%;
 }
 
 .margin-bottom {
@@ -29,7 +29,7 @@ img {
 }
 
 .margin-top {
-  margin-top: -3rem;
+  margin-top: -3.7rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -50,6 +50,10 @@ img {
     width: 100%;
     object-fit: cover;
     height: 85%;
+  }
+
+  h2 {
+    margin-left: 1rem;
   }
 
   .margin-bottom {
