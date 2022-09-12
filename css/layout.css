@@ -32,6 +32,10 @@ img {
   margin-top: -3.7rem;
 }
 
+.entries-text {
+  margin-bottom: 2.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -62,5 +66,19 @@ img {
 
   .margin-top {
     margin-top: 0;
+  }
+
+  /* Entries */
+  .post {
+    display: flex;
+  }
+
+  .entries-text {
+    margin-top: -1.5rem;
+    margin-left: 1rem;
+  }
+
+  li {
+    margin-bottom: 3.5rem;
   }
 }

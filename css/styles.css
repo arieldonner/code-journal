@@ -66,3 +66,24 @@ button {
   display: flex;
   justify-content: flex-end;
 }
+
+/* Entries */
+ul {
+  list-style: none;
+}
+
+h3 {
+  line-height: 155%;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.entry-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
