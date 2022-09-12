@@ -77,7 +77,15 @@ h3 {
 }
 
 .inline {
-  display: inline-block;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.entry-button {
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  margin-top: 1.3rem;
 }
 
 .entry-img {
