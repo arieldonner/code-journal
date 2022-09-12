@@ -21,7 +21,7 @@ function handleSubmit(event) {
 
   values.nextEntryId = data.nextEntryId;
   data.nextEntryId += 1;
-  data.entries.push(values);
+  data.entries.unshift(values);
 
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
 
