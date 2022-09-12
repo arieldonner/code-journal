@@ -28,40 +28,36 @@
     </div>
   </header>
   <main>
-    <div class="container" data-view="entry-form" id="entry-form">
-      <div class="row">
-        <div class="column-full">
-          <h1>New Entry</h1>
+    <div class="container" data-view="entry-form">
+      <form id="entry-form">
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="column-full column-half margin-bottom">
-          <img src="images/placeholder-image-square.jpg" alt="Placeholder where image will go">
-        </div>
-        <div class="column-full column-half margin-top">
-          <form id="title-and-photo-form">
+        <div class="row">
+          <div class="column-full column-half margin-bottom">
+            <img src="images/placeholder-image-square.jpg" alt="Placeholder where image will go">
+          </div>
+          <div class="column-full column-half margin-top">
             <label for="title">Title</label>
             <input required name="title" type="text" id="title">
             <label for="photo-url">Photo URL</label>
             <input required name="photo-url" type="url" id="photo-url">
-          </form>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="column-full">
-          <form id="notes-form">
+        <div class="row">
+          <div class="column-full">
             <label for="notes">Notes</label>
             <textarea required rows="10" name="notes" id="notes"></textarea>
-          </form>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="column-full right-left">
-          <form id="submit-form">
+        <div class="row">
+          <div class="column-full right-left">
             <button type="submit">SAVE</button>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </main>
   <script src="js/data.js"></script>
