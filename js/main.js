@@ -129,6 +129,12 @@ $ul.addEventListener('click', function (event) {
       var currentEntry = data.entries[i];
       if (currentId === getId) {
         data.editing = currentEntry;
+        var $title = $entryForm.querySelector('#title');
+        var $notes = $entryForm.querySelector('#notes');
+        $title.value = data.editing.title;
+        $photoURL.value = data.editing.photo;
+        $img.setAttribute('src', $photoURL.value);
+        $notes.value = data.editing.notes;
       }
     }
   }
