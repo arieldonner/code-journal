@@ -22,14 +22,15 @@
 <body>
   <header>
     <div class="row">
-      <div class="container column-full">
+      <div class="container column-full nav">
         <h2>Code Journal</h2>
+        <h3><a href="#">Entries</a></h3>
       </div>
     </div>
   </header>
   <main>
-    <div class="container hidden" data-view="entry-form">
-      <form id="entry-form">
+    <div class="container" data-view="entry-form">
+      <form id="entry-form" class="hidden">
         <div class="row">
           <div class="column-full">
             <h1>New Entry</h1>
@@ -59,7 +60,7 @@
         </div>
       </form>
     </div>
-    <div class="container" data-view="entries">
+    <div class="container" data-view="entries" id="entries-sec">
       <div class="row">
         <div class="column-half inline">
           <h1>Entries</h1>
@@ -69,32 +70,13 @@
         </div>
       </div>
       <div class="row">
+        <div class="column-full">
+          <h3 class="text-center" id="noEntries">No entries have been recorded.</h3>
+        </div>
+      </div>
+      <div class="row">
         <div>
           <ul>
-            <li class="post">
-              <div class="column-half">
-                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" alt="eevee" class="entry-img">
-              </div>
-              <div class="column-half entries-text">
-                <h1>Eevee Pokemon</h1>
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</h3>
-              </div>
-            </li>
-            <li class="post">
-              <div class="column-half">
-                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="pikachu" class="entry-img">
-              </div>
-              <div class="column-half entries-text">
-                <h1>Pikachu Pokemon</h1>
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</h3>
-              </div>
-            </li>
           </ul>
         </div>
       </div>

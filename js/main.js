@@ -3,6 +3,7 @@ var $img = document.querySelector('img');
 
 $photoURL.addEventListener('input', handleInput);
 
+/* Adds picture with URL */
 function handleInput(event) {
   $img.setAttribute('src', event.target.value);
 }
@@ -26,6 +27,9 @@ function handleSubmit(event) {
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
 
   $entryForm.reset();
+
+  $entryForm.className = 'hidden';
+  $entriesSec.className = 'container';
 }
 
 /* Entries */
@@ -65,4 +69,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var completeEntry = createEntry(data.entries[i]);
     $ul.appendChild(completeEntry);
   }
+});
+
+var $entriesNav = document.querySelector('a');
+var $entriesSec = document.querySelector('#entries-sec');
+
+$entriesNav.addEventListener('click', function (event) {
+  $entryForm.className = 'hidden';
+  $entriesSec.className = 'container';
+});
+
+var $entriesButton = document.querySelector('.entry-button');
+
+$entriesButton.addEventListener('click', function (event) {
+  $entryForm.className = '';
+  $entriesSec.className = 'container hidden';
 });
