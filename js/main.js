@@ -26,6 +26,8 @@ function handleSubmit(event) {
 
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
 
+  $ul.prepend(createEntry(values));
+
   $entryForm.reset();
 
   $entryForm.className = 'hidden';

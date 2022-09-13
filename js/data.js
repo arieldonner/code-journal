@@ -11,8 +11,6 @@ var previousJSON = localStorage.getItem('javascript-local-storage');
 
 if (previousJSON !== null) {
   data = JSON.parse(previousJSON);
-  var $noEntries = document.querySelector('#noEntries');
-  $noEntries.className = 'text-center hidden';
 }
 
 window.addEventListener('beforeunload', handleBeforeUnload);
