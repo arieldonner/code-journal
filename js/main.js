@@ -87,3 +87,8 @@ $entriesButton.addEventListener('click', function (event) {
   $entryForm.className = '';
   $entriesSec.className = 'container hidden';
 });
+
+var $noEntries = document.querySelector('#noEntries');
+if (data.entries.length !== 0) {
+  $noEntries.className = 'text-center hidden';
+}
