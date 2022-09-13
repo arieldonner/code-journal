@@ -110,3 +110,21 @@ h3 {
 .text-center {
   text-align: center;
 }
+
+i {
+  color: rgb(78, 14, 138);
+  transform: scale(1.5);
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.inline-block {
+  display: inline-block;
+  margin-bottom: -0.5rem;
+}
+
+.title-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

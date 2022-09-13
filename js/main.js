@@ -20,7 +20,7 @@ function handleSubmit(event) {
     notes: document.forms[0].elements.notes.value
   };
 
-  values.nextEntryId = data.nextEntryId;
+  values['data-entry-id'] = data.nextEntryId;
   data.nextEntryId += 1;
   data.entries.unshift(values);
 
@@ -56,9 +56,18 @@ function createEntry(entry) {
   divCol2.className = 'column-half entries-text';
   var textContainer = list.appendChild(divCol2);
 
+  var titleAndIcon = document.createElement('div');
+  titleAndIcon.className = 'title-icon';
+  textContainer.appendChild(titleAndIcon);
+
   var entryTitle = document.createElement('h1');
   entryTitle.textContent = entry.title;
-  textContainer.appendChild(entryTitle);
+  entryTitle.className = 'inline-block';
+  titleAndIcon.appendChild(entryTitle);
+
+  var editIcon = document.createElement('i');
+  editIcon.className = 'fa-solid fa-pen';
+  titleAndIcon.appendChild(editIcon);
 
   var entryNotes = document.createElement('h3');
   entryNotes.textContent = entry.notes;
@@ -107,3 +116,7 @@ function handleView(view) {
     $entriesSec.className = 'container hidden';
   }
 }
+
+$ul.addEventListener('click', function (event) {
+  handleView('entry-form');
+});
