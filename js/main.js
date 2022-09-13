@@ -30,8 +30,7 @@ function handleSubmit(event) {
 
   $entryForm.reset();
 
-  $entryForm.className = 'hidden';
-  $entriesSec.className = 'container';
+  handleView('entry-form');
 
   if (data.entries.length !== 0) {
     $noEntries.className = 'text-center hidden';
@@ -74,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     var completeEntry = createEntry(data.entries[i]);
     $ul.appendChild(completeEntry);
+    handleView(data.view);
   }
 });
 
@@ -81,8 +81,7 @@ var $entriesNav = document.querySelector('a');
 var $entriesSec = document.querySelector('#entries-sec');
 
 $entriesNav.addEventListener('click', function (event) {
-  $entryForm.className = 'hidden';
-  $entriesSec.className = 'container';
+  handleView('entry-form');
 });
 
 var $entriesButton = document.querySelector('.entry-button');
@@ -90,11 +89,21 @@ var $entriesButton = document.querySelector('.entry-button');
 $entriesButton.addEventListener('click', function (event) {
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
   $entryForm.reset();
-  $entryForm.className = '';
-  $entriesSec.className = 'container hidden';
+  handleView('entries');
 });
 
 var $noEntries = document.querySelector('#noEntries');
 if (data.entries.length !== 0) {
   $noEntries.className = 'text-center hidden';
+}
+
+function handleView(view) {
+  data.view = view;
+  if (view === 'entry-form') {
+    $entryForm.className = 'hidden';
+    $entriesSec.className = 'container';
+  } else if (view === 'entries') {
+    $entryForm.className = '';
+    $entriesSec.className = 'container hidden';
+  }
 }
