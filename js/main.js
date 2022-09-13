@@ -32,6 +32,10 @@ function handleSubmit(event) {
 
   $entryForm.className = 'hidden';
   $entriesSec.className = 'container';
+
+  if (data.entries.length !== 0) {
+    $noEntries.className = 'text-center hidden';
+  }
 }
 
 /* Entries */
@@ -84,6 +88,8 @@ $entriesNav.addEventListener('click', function (event) {
 var $entriesButton = document.querySelector('.entry-button');
 
 $entriesButton.addEventListener('click', function (event) {
+  $img.setAttribute('src', '../images/placeholder-image-square.jpg');
+  $entryForm.reset();
   $entryForm.className = '';
   $entriesSec.className = 'container hidden';
 });
