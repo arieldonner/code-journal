@@ -67,6 +67,9 @@ function createEntry(entry) {
 
   var editIcon = document.createElement('i');
   editIcon.className = 'fa-solid fa-pen';
+  for (var i = 0; i < data.entries.length; i++) {
+    editIcon.setAttribute('data-entryid', entry['data-entry-id']);
+  }
   titleAndIcon.appendChild(editIcon);
 
   var entryNotes = document.createElement('h3');
@@ -118,5 +121,15 @@ function handleView(view) {
 }
 
 $ul.addEventListener('click', function (event) {
-  handleView('entry-form');
+  if (event.target && event.target.tagName === 'I') {
+    handleView('entries');
+    var getId = parseInt(event.target.getAttribute('data-entryid'));
+    for (var i = 0; i < data.entries.length; i++) {
+      var currentId = data.entries[i]['data-entry-id'];
+      var currentEntry = data.entries[i];
+      if (currentId === getId) {
+        data.editing = currentEntry;
+      }
+    }
+  }
 });
