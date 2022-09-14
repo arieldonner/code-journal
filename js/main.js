@@ -174,9 +174,16 @@ $ul.addEventListener('click', function (event) {
   }
 });
 
+var $modal = document.querySelector('.container-modal');
+
 /* Delete */
-$delete.addEventListener('click', handleDelete);
+$entryForm.addEventListener('click', handleDelete);
 
 function handleDelete(event) {
-  // console.log('event fired');
+  // console.log(event.target);
+  // console.log(event.target.tagName);
+  if (event.target.className === 'delete-button' && event.target.tagName === 'BUTTON') {
+    event.preventDefault();
+    $modal.className = 'container-modal';
+  }
 }
