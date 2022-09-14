@@ -29,15 +29,15 @@ function handleSubmit(event) {
     };
     for (var i = 0; i < data.entries.length; i++) {
       var currentId = data.entries[i]['data-entry-id'];
-      // left off here, need to fix why it is null;
       var editId = data.editing['data-entry-id'];
-      // console.log(currentId);
-      // console.log(editId);
       if (currentId === editId) {
-        data.entries.splice(i, valuesEdit);
+        data.entries.splice(i, 1, valuesEdit);
+        var $li = document.querySelectorAll('li');
+        $li[i].replaceWith(createEntry(valuesEdit));
       }
-      data.editing = null;
     }
+    data.editing = null;
+    handleView('entry-form');
   } else {
     values['data-entry-id'] = data.nextEntryId;
     data.nextEntryId += 1;
@@ -162,16 +162,3 @@ $ul.addEventListener('click', function (event) {
     }
   }
 });
-
-/*
-if (data.editing !== null) {
-    for (var i = 0; i < data.entries.length; i++) {
-      var currentId = data.entries[i]['data-entry-id'];
-      if (currentId === data.editing['data-entry-id']) {
-        data.entries[i].title.replaceWith(values.title);
-        data.entries[i].photo.replaceWith(values.photo);
-        data.entries[i].notes.replaceWith(values.notes)
-      }
-    data.editing = null;
-  }
-*/
