@@ -122,6 +122,8 @@ $entriesNav.addEventListener('click', function (event) {
 var $entriesButton = document.querySelector('.entry-button');
 
 $entriesButton.addEventListener('click', function (event) {
+  var $h1 = document.querySelector('h1');
+  $h1.textContent = 'New Entry';
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
   $entryForm.reset();
   handleView('entries');
@@ -143,9 +145,12 @@ function handleView(view) {
   }
 }
 
+/* Edit Entry Function */
 $ul.addEventListener('click', function (event) {
   if (event.target && event.target.tagName === 'I') {
     handleView('entries');
+    var $h1 = document.querySelector('h1');
+    $h1.textContent = 'Edit Entry';
     var getId = parseInt(event.target.getAttribute('data-entryid'));
     for (var i = 0; i < data.entries.length; i++) {
       var currentId = data.entries[i]['data-entry-id'];
