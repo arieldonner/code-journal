@@ -20,13 +20,33 @@ function handleSubmit(event) {
     notes: document.forms[0].elements.notes.value
   };
 
-  values['data-entry-id'] = data.nextEntryId;
-  data.nextEntryId += 1;
-  data.entries.unshift(values);
+  if (data.editing !== null) {
+    var valuesEdit = {
+      title: document.forms[0].elements.title.value,
+      photo: document.forms[0].elements['photo-url'].value,
+      notes: document.forms[0].elements.notes.value,
+      'data-entry-id': data.editing['data-entry-id']
+    };
+    for (var i = 0; i < data.entries.length; i++) {
+      var currentId = data.entries[i]['data-entry-id'];
+      // left off here, need to fix why it is null;
+      var editId = data.editing['data-entry-id'];
+      // console.log(currentId);
+      // console.log(editId);
+      if (currentId === editId) {
+        data.entries.splice(i, valuesEdit);
+      }
+      data.editing = null;
+    }
+  } else {
+    values['data-entry-id'] = data.nextEntryId;
+    data.nextEntryId += 1;
+    data.entries.unshift(values);
 
-  $img.setAttribute('src', '../images/placeholder-image-square.jpg');
+    $img.setAttribute('src', '../images/placeholder-image-square.jpg');
 
-  $ul.prepend(createEntry(values));
+    $ul.prepend(createEntry(values));
+  }
 
   $entryForm.reset();
 
@@ -35,6 +55,8 @@ function handleSubmit(event) {
   if (data.entries.length !== 0) {
     $noEntries.className = 'text-center hidden';
   }
+
+  data.editing = null;
 }
 
 /* Entries */
@@ -94,6 +116,7 @@ var $entriesSec = document.querySelector('#entries-sec');
 
 $entriesNav.addEventListener('click', function (event) {
   handleView('entry-form');
+  data.editing = null;
 });
 
 var $entriesButton = document.querySelector('.entry-button');
@@ -139,3 +162,16 @@ $ul.addEventListener('click', function (event) {
     }
   }
 });
+
+/*
+if (data.editing !== null) {
+    for (var i = 0; i < data.entries.length; i++) {
+      var currentId = data.entries[i]['data-entry-id'];
+      if (currentId === data.editing['data-entry-id']) {
+        data.entries[i].title.replaceWith(values.title);
+        data.entries[i].photo.replaceWith(values.photo);
+        data.entries[i].notes.replaceWith(values.notes)
+      }
+    data.editing = null;
+  }
+*/
