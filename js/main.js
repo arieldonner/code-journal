@@ -175,15 +175,43 @@ $ul.addEventListener('click', function (event) {
 });
 
 var $modal = document.querySelector('.container-modal');
+var $cancel = document.querySelector('.grey-button');
+var $confirm = document.querySelector('.red-button');
 
-/* Delete */
-$entryForm.addEventListener('click', handleDelete);
+$entryForm.addEventListener('click', showModal);
 
-function handleDelete(event) {
-  // console.log(event.target);
-  // console.log(event.target.tagName);
+function showModal(event) {
   if (event.target.className === 'delete-button' && event.target.tagName === 'BUTTON') {
     event.preventDefault();
     $modal.className = 'container-modal';
   }
 }
+
+$cancel.addEventListener('click', closeModal);
+
+function closeModal(event) {
+  if (event.target.className === 'grey-button') {
+    $modal.className = 'container-modal hidden';
+  }
+}
+
+$confirm.addEventListener('click', handleDelete);
+
+function handleDelete(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    // var currentId = data.entries[i]['data-entry-id'];
+    // var editId = data.editing['data-entry-id'];
+  }
+}
+
+/*
+for (var i = 0; i < data.entries.length; i++) {
+      var currentId = data.entries[i]['data-entry-id'];
+      var editId = data.editing['data-entry-id'];
+      if (currentId === editId) {
+        data.entries.splice(i, 1, valuesEdit);
+        var $li = document.querySelectorAll('li');
+        $li[i].replaceWith(createEntry(valuesEdit));
+      }
+    }
+*/
