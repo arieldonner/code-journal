@@ -1,5 +1,6 @@
 var $photoURL = document.querySelector('#photo-url');
 var $img = document.querySelector('img');
+var $delete = document.querySelector('.delete-button');
 
 $photoURL.addEventListener('input', handleInput);
 
@@ -12,6 +13,7 @@ var $entryForm = document.querySelector('#entry-form');
 
 $entryForm.addEventListener('submit', handleSubmit);
 
+/* Submits with save button */
 function handleSubmit(event) {
   event.preventDefault();
   var values = {
@@ -124,6 +126,7 @@ var $entriesButton = document.querySelector('.entry-button');
 $entriesButton.addEventListener('click', function (event) {
   var $h1 = document.querySelector('h1');
   $h1.textContent = 'New Entry';
+  $delete.className = 'delete-button hidden';
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
   $entryForm.reset();
   handleView('entries');
@@ -152,14 +155,7 @@ $ul.addEventListener('click', function (event) {
     var $h1 = document.querySelector('h1');
     $h1.textContent = 'Edit Entry';
 
-    /* Creates Delete Entry Button on form page */
-    var $entryBottomDiv = document.querySelector('.right-left');
-    if ($entryBottomDiv.childNodes.length === 3) {
-      var deleteEntry = document.createElement('button');
-      deleteEntry.textContent = 'Delete Entry';
-      deleteEntry.className = 'delete-button';
-      $entryBottomDiv.prepend(deleteEntry);
-    }
+    $delete.className = 'delete-button';
 
     var getId = parseInt(event.target.getAttribute('data-entryid'));
     for (var i = 0; i < data.entries.length; i++) {
@@ -177,3 +173,10 @@ $ul.addEventListener('click', function (event) {
     }
   }
 });
+
+/* Delete */
+$delete.addEventListener('click', handleDelete);
+
+function handleDelete(event) {
+  // console.log('event fired');
+}
