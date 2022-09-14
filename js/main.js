@@ -1,6 +1,7 @@
 var $photoURL = document.querySelector('#photo-url');
 var $img = document.querySelector('img');
 var $delete = document.querySelector('.delete-button');
+var $rightLeft = document.querySelector('.right-left');
 
 $photoURL.addEventListener('input', handleInput);
 
@@ -127,6 +128,7 @@ $entriesButton.addEventListener('click', function (event) {
   var $h1 = document.querySelector('h1');
   $h1.textContent = 'New Entry';
   $delete.className = 'delete-button hidden';
+  $rightLeft.className = 'column-full';
   $img.setAttribute('src', '../images/placeholder-image-square.jpg');
   $entryForm.reset();
   handleView('entries');
@@ -154,6 +156,7 @@ $ul.addEventListener('click', function (event) {
     handleView('entries');
     var $h1 = document.querySelector('h1');
     $h1.textContent = 'Edit Entry';
+    $rightLeft.className = 'column-full right-left';
 
     $delete.className = 'delete-button';
 
@@ -199,19 +202,15 @@ $confirm.addEventListener('click', handleDelete);
 
 function handleDelete(event) {
   for (var i = 0; i < data.entries.length; i++) {
-    // var currentId = data.entries[i]['data-entry-id'];
-    // var editId = data.editing['data-entry-id'];
-  }
-}
-
-/*
-for (var i = 0; i < data.entries.length; i++) {
-      var currentId = data.entries[i]['data-entry-id'];
-      var editId = data.editing['data-entry-id'];
-      if (currentId === editId) {
-        data.entries.splice(i, 1, valuesEdit);
-        var $li = document.querySelectorAll('li');
-        $li[i].replaceWith(createEntry(valuesEdit));
-      }
+    var currentId = data.entries[i]['data-entry-id'];
+    var editId = data.editing['data-entry-id'];
+    if (currentId === editId) {
+      data.entries.splice(i, 1);
+      var $li = document.querySelectorAll('li');
+      $li[i].remove();
     }
-*/
+  }
+  data.editing = null;
+  $modal.className = 'container-modal hidden';
+  handleView('entry-form');
+}
