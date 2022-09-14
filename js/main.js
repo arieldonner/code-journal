@@ -151,6 +151,16 @@ $ul.addEventListener('click', function (event) {
     handleView('entries');
     var $h1 = document.querySelector('h1');
     $h1.textContent = 'Edit Entry';
+
+    /* Creates Delete Entry Button on form page */
+    var $entryBottomDiv = document.querySelector('.right-left');
+    if ($entryBottomDiv.childNodes.length === 3) {
+      var deleteEntry = document.createElement('button');
+      deleteEntry.textContent = 'Delete Entry';
+      deleteEntry.className = 'delete-button';
+      $entryBottomDiv.prepend(deleteEntry);
+    }
+
     var getId = parseInt(event.target.getAttribute('data-entryid'));
     for (var i = 0; i < data.entries.length; i++) {
       var currentId = data.entries[i]['data-entry-id'];
