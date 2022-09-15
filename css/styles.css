@@ -193,3 +193,9 @@ i {
   z-index: 1000;
   background-color: rgb(0 0 0 / 80%);
 }
+
+/* Search Bar */
+#search {
+  width: 55%;
+  margin-left: 5rem;
+}

@@ -214,3 +214,26 @@ function handleDelete(event) {
   $modal.className = 'container-modal hidden';
   handleView('entry-form');
 }
+
+/* Search Bar */
+var $search = document.querySelector('#search');
+$search.addEventListener('input', function (event) {
+  var value = event.target.value;
+  var $liSearch = document.querySelectorAll('li');
+  if (value && value.trim().length > 0) {
+    value = value.trim().toLowerCase();
+    for (var i = 0; i < data.entries.length; i++) {
+      var currentTitle = data.entries[i].title;
+      var lower = currentTitle.toLowerCase();
+      if (lower.indexOf(value) === -1) {
+        $liSearch[i].style.display = 'none';
+      } else {
+        $liSearch[i].style.display = '';
+      }
+    }
+  } else {
+    for (var j = 0; j < data.entries.length; j++) {
+      $liSearch[j].style.display = '';
+    }
+  }
+});
